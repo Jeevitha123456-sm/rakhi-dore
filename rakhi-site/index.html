@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhore &amp; Jeevitha — A Rakhi to Remember</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Great+Vibes&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- floating thread that runs the length of the page -->
+<div class="thread-rail" aria-hidden="true"><div class="thread-rail__fill" id="threadFill"></div></div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true">
+    <svg class="knot" viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="70" class="knot__ring knot__ring--1"/>
+      <circle cx="100" cy="100" r="52" class="knot__ring knot__ring--2"/>
+      <circle cx="100" cy="100" r="34" class="knot__ring knot__ring--3"/>
+    </svg>
+    <div class="sparkle sparkle--1">✦</div>
+    <div class="sparkle sparkle--2">✦</div>
+    <div class="sparkle sparkle--3">✦</div>
+    <div class="sparkle sparkle--4">✦</div>
+  </div>
+
+  <p class="eyebrow">a handmade digital rakhi from</p>
+  <h2 class="hero__from">Jeevitha</h2>
+  <p class="eyebrow eyebrow--to">tied with love, for</p>
+  <h1 class="hero__names"><span>Dhore</span></h1>
+
+  <p class="hero__tagline">Every thread of this Rakhi carries a memory, a laugh, a promise — scroll down and open them one by one.</p>
+
+  <a href="#story" class="btn btn--ghost hero__cta">
+    <span>Begin the Celebration</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v14m0 0l6-6m-6 6l-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</header>
+
+<!-- ============ OUR STORY / GALLERY ============ -->
+<section class="story" id="story">
+  <p class="section-eyebrow">chapter one</p>
+  <h2 class="section-title">Our Story, in Pictures</h2>
+  <p class="section-sub">Swap these frames for your own favourite photos of Dhore &amp; Jeevitha </p>
+
+  <div class="gallery">
+    <figure class="gallery__item gallery__item--tall">
+      <img src="photos/photo1.jpg" alt="A memory of Dhore and Jeevitha" onerror="this.classList.add('img-fallback')">
+      <figcaption>The one where we couldn't stop laughing</figcaption>
+    </figure>
+    <figure class="gallery__item">
+      <img src="photos/photo2.jpg" alt="A memory of Dhore and Jeevitha" onerror="this.classList.add('img-fallback')">
+      <figcaption>Festival evenings, always together</figcaption>
+    </figure>
+    <figure class="gallery__item">
+      <img src="photos/photo3.jpg" alt="A memory of Dhore and Jeevitha" onerror="this.classList.add('img-fallback')">
+      <figcaption>Growing up, side by side</figcaption>
+    </figure>
+    <figure class="gallery__item gallery__item--tall">
+      <img src="photos/photo4.jpg" alt="A memory of Dhore and Jeevitha" onerror="this.classList.add('img-fallback')">
+      <figcaption>Last Rakhi, and every one before it</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ THIS OR THAT GAME ============ -->
+<section class="quiz" id="quiz">
+  <p class="section-eyebrow section-eyebrow--light">chapter two</p>
+  <h2 class="section-title section-title--light">This or That: The Sibling Edition</h2>
+  <p class="section-sub section-sub--light">Fifteen questions. One winner. Zero seriousness. Tap a name for each round.</p>
+
+  <div class="quiz__card" id="quizCard">
+
+    <!-- START STATE -->
+    <div class="quiz__panel" id="panelStart">
+      <div class="quiz__avatars">
+        <img src="photos/brother.jpg" alt="Dhore" onerror="this.classList.add('img-fallback')">
+        <span class="quiz__vs">vs</span>
+        <img src="photos/sister.jpg" alt="Jeevitha" onerror="this.classList.add('img-fallback')">
+      </div>
+      <p class="quiz__intro">Who steals the last bite? Who's the family drama queen? Let's settle it once and for all.</p>
+      <button class="btn btn--solid" id="startBtn">Start the Game</button>
+    </div>
+
+    <!-- QUESTION STATE -->
+    <div class="quiz__panel quiz__panel--hidden" id="panelQuestion">
+      <div class="quiz__progress"><div class="quiz__progress-bar" id="progressBar"></div></div>
+      <p class="quiz__count" id="quizCount">Question 1 of 15</p>
+      <h3 class="quiz__question" id="quizQuestion">Loading…</h3>
+      <div class="quiz__options">
+        <button class="quiz__option" id="optA" data-who="brother"></button>
+        <button class="quiz__option" id="optB" data-who="sister"></button>
+      </div>
+    </div>
+
+    <!-- RESULT STATE -->
+    <div class="quiz__panel quiz__panel--hidden" id="panelResult">
+      <p class="quiz__count">The verdict is in</p>
+      <h3 class="quiz__result-title" id="resultTitle">Loading…</h3>
+      <div class="quiz__bars">
+        <div class="quiz__bar-row">
+          <span>Dhore</span>
+          <div class="quiz__bar-track"><div class="quiz__bar-fill quiz__bar-fill--brother" id="barBrother"></div></div>
+          <span id="scoreBrother">0</span>
+        </div>
+        <div class="quiz__bar-row">
+          <span>Jeevitha</span>
+          <div class="quiz__bar-track"><div class="quiz__bar-fill quiz__bar-fill--sister" id="barSister"></div></div>
+          <span id="scoreSister">0</span>
+        </div>
+      </div>
+      <p class="quiz__result-note">Whatever the score says — you both win. Always have.</p>
+      <button class="btn btn--ghost btn--ghost-dark" id="replayBtn">Play Again</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ LETTER ============ -->
+<section class="letter" id="letter">
+  <p class="section-eyebrow">chapter three</p>
+  <h2 class="section-title">A Letter for My Brother</h2>
+
+  <div class="letter__card">
+    <span class="letter__quote-mark" aria-hidden="true">&ldquo;</span>
+    <p>Dhore,</p>
+    <p>Before either of us knew what the word meant, we were already best friends. You've pulled my pigtails, stolen my food, borrowed things you never returned — and somehow still ended up being the one person I trust with everything. That's the strange, wonderful math of siblings.</p>
+    <p>This Rakhi, I'm not just tying a thread around your wrist. I'm tying every fight we've made up from, every secret you've kept, every time you showed up without me even asking. I promise to keep annoying you for the rest of our lives — consider it my love language.</p>
+    <p>Happy Raksha Bandhan, my favourite person to argue with and adore in the same breath.</p>
+    <p class="letter__sign">Forever your sister,<br><span>Jeevitha</span></p>
+  </div>
+</section>
+
+<!-- ============ PROMISES ============ -->
+<section class="promise" id="promise">
+  <p class="section-eyebrow">chapter four</p>
+  <h2 class="section-title">This Rakhi, I Promise</h2>
+
+  <div class="promise__grid">
+    <div class="promise__card">
+      <div class="promise__icon">🛡️</div>
+      <h3>To Protect</h3>
+      <p>Your back, your secrets, your bad decisions — I've got them covered, no questions asked.</p>
+    </div>
+    <div class="promise__card">
+      <div class="promise__icon">😂</div>
+      <h3>To Tease</h3>
+      <p>Relentlessly, lovingly, and usually in front of relatives. It's tradition at this point.</p>
+    </div>
+    <div class="promise__card">
+      <div class="promise__icon">🤝</div>
+      <h3>To Show Up</h3>
+      <p>Good days, bad days, 2 a.m. phone calls — I'll be there before you finish asking.</p>
+    </div>
+    <div class="promise__card">
+      <div class="promise__icon">💛</div>
+      <h3>To Love, Always</h3>
+      <p>No expiry date on this one. Distance, arguments, time — none of it changes a thing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIE THE RAKHI ============ -->
+<section class="tie" id="tie">
+  <div class="tie__inner">
+    <p class="section-eyebrow section-eyebrow--light">the final thread</p>
+    <h2 class="section-title section-title--light">Tie the Rakhi</h2>
+    <p class="section-sub section-sub--light">Tap the thread below to complete the ritual.</p>
+
+    <button class="tie__button" id="tieButton" aria-label="Tie the Rakhi">
+      <svg viewBox="0 0 240 120" class="tie__svg" id="tieSvg">
+        <path id="tieThreadLeft" d="M10,60 C60,60 80,60 108,60" stroke="#C9962B" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path id="tieThreadRight" d="M230,60 C180,60 160,60 132,60" stroke="#C9962B" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <circle id="tieCharm" cx="120" cy="60" r="16" fill="#E8722C" stroke="#FBF3E7" stroke-width="3"/>
+      </svg>
+    </button>
+
+    <div class="tie__message" id="tieMessage">
+      <p>The Rakhi is tied. 🪢</p>
+      <p class="tie__message-sub">Happy Raksha Bandhan, Dhore. — With all my love, Jeevitha</p>
+    </div>
+  </div>
+</section>
+
+<canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+<footer class="footer">
+  <p>Made with love by <strong>Jeevitha</strong>, for <strong>Dhore</strong>.</p>
+  <p class="footer__small">Happy Raksha Bandhan 🪢</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
